@@ -1,0 +1,23 @@
+*{
+    font-family: "Times New Roman", serif;
+}
+
+/*for background create page */
+.create_new_user{
+    background: white ;
+}
+.register,.right-content{
+    background: #D9E0E7 !important ;
+}
+
+/************  for create users  ************/
+
+.label_create_user ,.form-control,.btn_create_user{
+    font-size: 1.3rem;
+    width: 133%;
+}
+.table-td-valign-middle,#sidebar,.cover,.pace-done{
+ font-size: 1rem;
+}
+
+
