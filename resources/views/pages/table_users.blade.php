@@ -32,14 +32,18 @@
 		</div>
 		<!-- end panel-heading -->
 		<!-- begin panel-body -->
-		<div class="panel-body">
-			<table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle text-center">
+		<div class="panel-body table-responsive">
+			<table id="data-table-default" class="table m-b-0 table-hover table-sm table-td-valign-middle text-center">
 				<thead>
 					<tr>
 						<th scope="col">Id</th>
 						<th scope="col">Name</th>
 						<th scope="col">Email</th>
+						<th scope="col">gender</th>
 						<th scope="col">Password</th>
+						<th scope="col">phone</th>
+						<th scope="col">photo</th>
+						<th scope="col" colspan="2">Action</th>
 					</tr>
 				</thead>
 				@foreach($users as $user)
@@ -47,7 +51,33 @@
 				<td> {{$user->id}} </td>
 				<td> {{$user->name}} </td>
 				<td> {{$user->email}} </td>
+				<td> {{$user->gender}} </td>
 				<td> {{$user->password}} </td>
+				<td> {{$user-> phone}} </td>
+				<td>
+					@if($user->gender === 'male')
+						<img class="img_user" src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/3_avatar-512.png" alt="">
+
+					@else
+						<img class="img_user" src="https://wwbmmc.ca/wp-content/uploads/2020/12/kisspng-computer-icons-avatar-icon-design-male-teacher-5ade176c636ed2.2763610715245044284073.png" alt="">
+					@endif
+{{--				<img class="img_user" src="{{asset('assets/images/avatar_user/quziz@mailinator.com.png')}}" alt="">--}}
+
+
+				</td>
+				<td>
+					<a href="{{route('edit_user',$user->id)}}">
+						<button type="submit" class="btn btn-primary btn_action_admin text-center">Edit</button>
+					</a>
+				</td>
+					<td>
+						<form action="{{route('delete')}}" method="post">
+							@csrf
+							@method('DELETE')
+							<input name="user_id" type="hidden" value="{{$user->id}}">
+							<button type="submit" class="btn btn-danger btn_action_admin text-center">Delete</button>
+						</form>
+					</td>
 
 				</tbody>
 				@endforeach
@@ -56,6 +86,7 @@
 		<!-- end panel-body -->
 	</div>
 	<!-- end panel -->
+
 @endsection
 
 @push('scripts')

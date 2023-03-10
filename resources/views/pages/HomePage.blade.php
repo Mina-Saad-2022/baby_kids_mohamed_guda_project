@@ -13,12 +13,10 @@
 	<!-- begin breadcrumb -->
 	<ol class="breadcrumb float-xl-right">
 		<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-		<li class="breadcrumb-item"><a href="javascript:;">Dashboard</a></li>
-		<li class="breadcrumb-item active">Dashboard v2</li>
 	</ol>
 	<!-- end breadcrumb -->
 	<!-- begin page-header -->
-	<h1 class="page-header">Dashboard v2 <small>header small text goes here...</small></h1>
+	<h1 class="page-header">Home Page <small>header small text goes here...</small></h1>
 	<!-- end page-header -->
 	<!-- begin row -->
 	<div class="row">

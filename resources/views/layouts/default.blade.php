@@ -51,5 +51,7 @@
 	</div>
 	
 	@include('includes.page-js')
+	@include('sweetalert::alert')
+
 </body>
 </html>

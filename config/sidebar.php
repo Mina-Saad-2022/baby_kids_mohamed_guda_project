@@ -12,23 +12,28 @@ return [
     | the usual Laravel view path has already been registered for you.
     |
     */
+
+    /* to open admin home page */
+
   'menu' => [[
       'icon' => 'fa fa-home',
-		'title' => 'Home',
-      'url' => 'Home',
+		'title' => 'Home Page',
+      'url' => 'HomePage',
 		'caret' => true,
 
 	],
+
+
       [
 		'icon' => 'fa fa-table',
 		'title' => 'Users',
 		'url' => 'javascript:;',
 		'caret' => true,
 		'sub_menu' => [[
-			'url' => 'Create',
+			'url' => 'User/Create',
 			'title' => 'Create User'
 		],           [
-				'url' => 'All',
+				'url' => 'User/All',
 				'title' => 'All users'
 
 		]]

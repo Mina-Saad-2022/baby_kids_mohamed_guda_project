@@ -3,8 +3,8 @@
 @section('title', 'Managed Tables')
 
 @push('css')
-    <link href="/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="/assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <link href="/assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"/>
 @endpush
 
 @section('content')
@@ -13,49 +13,131 @@
         <!-- begin register -->
         <div class="register register-with-news-feed  ">
 
+            <!-- begin right-content -->
+            <div class="right-content parent">
+                <!-- begin register-content -->
+                <div class="register-content">
+                    <form action="{{route('add_user')}}" method="post" class="margin-bottom-0" enctype='multipart/form-data'>
+                        @csrf
+                        <div class="d-flex col-12 inputs">
+                            <div class="col-6">
+                                <label class="control-label label_create_user">Name <span
+                                            class="text-danger">:</span></label>
+                                <div class="row row-space-10">
+                                    <div class="col-md-12">
+                                        <input type="text" name="name"
+                                               class="form-control @error('name') is-invalid @enderror"
+                                               placeholder="Your Name"/>
+                                        {{--the validation error--}}
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                             <h4 class="message_wrong">{{ $message }}</h4>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="control-label label_create_user">Email <span class="text-danger">:</span></label>
+                                <div class="row row-space-10">
+                                    <div class="col-md-12">
+                                        <input type="text" name="email"
+                                               class="form-control @error('email') is-invalid @enderror"
+                                               placeholder="Your Email"/>
+                                        {{--the validation error--}}
 
-          <!-- begin right-content -->
-        <div class="right-content m-auto">
-            <!-- begin register-content -->
-            <div class="register-content">
-                <form action="{{route('add_user')}}" method="post" class="margin-bottom-0">
-                    @csrf
-                    <label class="control-label label_create_user">Name <span class="text-danger">:</span></label>
-                    <div class="row row-space-10">
-                        <div class="col-md-12 m-b-15">
-                            <input type="text" name="name" class="form-control" placeholder="First name" required />
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                             <h4 class="message_wrong">{{ $message }}</h4>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex col-12 inputs">
+                            <div class="col-6">
+                                <label class="control-label label_create_user">Password <span
+                                            class="text-danger">:</span></label>
+                                <div class="row row-space-10">
+                                    <div class="col-md-12">
+                                        <input type="password" name="password" class="form-control "
+                                               placeholder="Your Password"/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-6">
+                                <label class="control-label label_create_user">Repeat Password <span
+                                            class="text-danger">:</span></label>
+                                <div class="row row-space-10">
+                                    <div class="col-md-12">
+                                        <input type="password" name="password_confirmation"
+                                               class="form-control @error('password') is-invalid @enderror"
+                                               placeholder="Repeat Your Password" required/>
+                                        {{--the validation error--}}
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                     <h4 class="message_wrong">{{ $message }}</h4>
+                                                 </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex col-12 inputs">
+                            <div class="col-6">
+                                <label class="control-label label_create_user">Phone <span class="text-danger">:</span></label>
+                                <div class="row row-space-10">
+                                    <div class="col-md-12">
+                                        <input type="text" name="phone"
+                                               class="form-control @error('phone') is-invalid @enderror"
+                                               placeholder="Your Number Phone"/>
+                                        {{--the validation error--}}
+                                        @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                             <h4 class="message_wrong">{{ $message }}</h4>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="control-label label_create_user">Gender <span class="text-danger">:</span></label>
+                                <div class="row row-space-10">
+                                    <div class="col-md-12">
+                                        <select class="form-control" name="gender">
+                                            <option>male</option>
+                                            <option>Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-12">
+                            <div class="row row-space-10">
+                                <div class="col-md-12">
+                                    <input type="file" name="photo" id="photo" aria-placeholder="photo"
+                                           class="form-control" placeholder="Your Number Phone"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="register-buttons p-5">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg btn_create_user">Create User
+                            </button>
                         </div>
 
-                    </div>
-                    <label class="control-label label_create_user">Email <span class="text-danger">:</span></label>
-                    <div class="row m-b-15">
-                        <div class="col-md-12">
-                            <input type="text" name="email" class="form-control" placeholder="Email address" required />
-                        </div>
-                    </div>
 
-                    <label class="control-label label_create_user">Password <span class="text-danger">:</span></label>
-                    <div class="row m-b-15">
-                        <div class="col-md-12">
-                            <input type="password"  name="password" class="form-control" placeholder="Password" required />
-                        </div>
-                    </div>
-{{--                    <label class="control-label label_create_user">Pitcher User <span class="text-danger">:</span></label>--}}
-{{--                    <div class="row m-b-15">--}}
-{{--                        <div class="col-md-12">--}}
-{{--                            <input type="file" class="form-control"  required />--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-                    <div class="register-buttons">
-                        <button type="submit" class="btn btn-primary btn-block btn-lg btn_create_user">Create User</button>
-                    </div>
+                    </form>
 
 
-                </form>
+                </div>
+                <!-- end register-content -->
             </div>
-            <!-- end register-content -->
+            <!-- end right-content -->
         </div>
-        <!-- end right-content -->
-    </div>
-    <!-- end register -->
+        <!-- end register -->
 @endsection

@@ -8,16 +8,44 @@
 }
 .register,.right-content{
     background: #D9E0E7 !important ;
+
+}
+.right-content{
+    width: 60% !important;
 }
 
-/************  for create users  ************/
+    /************  for create users  ************/
 
 .label_create_user ,.form-control,.btn_create_user{
     font-size: 1.3rem;
-    width: 133%;
+    /*width: 133%;*/
 }
 .table-td-valign-middle,#sidebar,.cover,.pace-done{
  font-size: 1rem;
 }
+/************  for  users img ************/
+
+.img_user{
+    width: 45px;
+    height: 35px;
+    border-radius: 50%;
+}
 
 
+/************  message  error in data inputs for create new user ************/
+
+.message_wrong{
+    color: #eb2f06;
+}
+
+/************  parent of inputs user data ************/
+
+.parent{
+    margin-left: 29% !important;
+}
+.inputs{
+    padding: 2%;
+}
+#photo{
+    background: none;
+}
